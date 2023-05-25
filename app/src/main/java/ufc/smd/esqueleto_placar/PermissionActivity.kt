@@ -12,10 +12,11 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.google.android.material.snackbar.Snackbar
 import data.UIEducacionalPermissao
 import androidx.activity.result.ActivityResultLauncher as ActivityResultLauncher1
 
-class PermissionActivity : AppCompatActivity() {
+class PermissionActivity : AppCompatActivity(), UIEducacionalPermissao.NoticeDialogListener {
 
     lateinit var requestPermissionLauncher:androidx.activity.result.ActivityResultLauncher<String>
 
@@ -29,65 +30,41 @@ class PermissionActivity : AppCompatActivity() {
                 if (isGranted) {
                     ligarFunc("tel:+5588999999999")
                 } else {
-                    Log.v("PDM", " Seu maldito, preciso dessa permissão")
+                    Snackbar.make(
+                        findViewById(R.id.layoutPermission),
+                        R.string.semPerLigar,
+                        Snackbar.LENGTH_SHORT
+                    ).show()
                 }
             }
     }
-    fun ligar(v: View) {
 
-
-        if(ContextCompat.checkSelfPermission(
+    fun ligarWhen(v:View){
+        when{
+            //Primeiro Caso do When - A permissão já existe
+            ContextCompat.checkSelfPermission(
                 this.applicationContext,
                 Manifest.permission.CALL_PHONE
-            ) == PackageManager.PERMISSION_GRANTED) {
-                //Tenho a permissão
-
-                ligarFunc("tel:+5585999999999")
-            }else{
-                //Não tenho a permissão
-                Log.v("PDM", "Não tem permissão")
-            requestPermissionLauncher.launch(Manifest.permission.CALL_PHONE)
-
+            ) == PackageManager.PERMISSION_GRANTED ->{
+                ligarFunc("tel:+558588888889")
             }
-
-        }
-
-
-
-
-
-
-
-
-
-    /*
-
-        if ((ContextCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE)
-                    == PackageManager.PERMISSION_GRANTED)
-        ) {
-            Log.v("SMD", "Tenho permissão")
-        } else {
-            if (shouldShowRequestPermissionRationale(Manifest.permission.CALL_PHONE)) {
-                Log.v("SMD", "Primeira Vez")
+            //Permissão Negada mas não para sempre
+            shouldShowRequestPermissionRationale(Manifest.permission.CALL_PHONE) ->{
+                // Chamar a UI Educacional
                 val mensagem =
                     "Nossa aplicação precisa acessar o telefone para discagem automática. Uma janela de permissão será solicitada"
                 val titulo = "Permissão de acesso a chamadas"
-                val codigo = 1
+                val codigo = 1 //Código da requisição
                 val mensagemPermissao = UIEducacionalPermissao(mensagem, titulo, codigo)
                 mensagemPermissao.onAttach(this as Context)
-                mensagemPermissao.show(supportFragmentManager, "primeiravez2")
-            } else {
-                val mensagem =
-                    "Nossa aplicação precisa acessar o telefone para discagem automática. Uma janela de permissão será solicitada"
-                val titulo = "Permissão de acesso a chamadas II"
-                val codigo = 1
-                val mensagemPermissao = UIEducacionalPermissao(mensagem, titulo, codigo)
-                mensagemPermissao.onAttach(this as Context)
-                mensagemPermissao.show(supportFragmentManager, "segundavez2")
-                Log.v("SMD", "Outra Vez")
+                mensagemPermissao.show(supportFragmentManager, "primeiravez")
             }
-        }*/
-    //}
+            // Permissão não foi pedida ainda
+            else ->{
+                requestPermissionLauncher.launch(Manifest.permission.CALL_PHONE)
+            }
+        }
+    }
 
     fun ligarFunc (numeroCall:String){
         val uri = Uri.parse(numeroCall)
@@ -95,28 +72,9 @@ class PermissionActivity : AppCompatActivity() {
         startActivity(itLigar)
     }
 
-
-    /*
-    override fun onRequestPermissionsResult(requestCode: Int,
-                                            permissions: Array<String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-
-        when (requestCode) {
-        2222 -> if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "VALEU", Toast.LENGTH_LONG).show()
-            val uri = Uri.parse(numeroCall)
-            //   Intent itLigar = new Intent(Intent.ACTION_DIAL, uri);
-            val itLigar = Intent(Intent.ACTION_CALL, uri)
-            startActivity(itLigar)
-        } else {
-            Toast.makeText(this, "SEU FELA!", Toast.LENGTH_LONG).show()
-            val mensagem =
-                "Seu aplicativo pode ligar diretamente, mas sem permissão não funciona. Se você marcou não perguntar mais, você deve ir na tela de configurações para mudar a instalação ou reinstalar o aplicativo  "
-            val titulo = "Porque precisamos telefonar?"
-            val mensagemPermisso = UIEducacionalPermissao(mensagem, titulo, 2)
-            mensagemPermisso.onAttach(this as Context?)
-            mensagemPermisso.show(getSupportFragmentManager(), "segundavez")
-        }
+    override fun onDialogPositiveClick(codigo: Int) {
+        //Método chamado pela caixa de diálogo
+        Log.v("PDM","Apertou OK")
+        requestPermissionLauncher.launch(Manifest.permission.CALL_PHONE)
     }
-}*/
 }
