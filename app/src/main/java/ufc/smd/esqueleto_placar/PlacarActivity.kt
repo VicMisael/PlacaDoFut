@@ -37,14 +37,14 @@ class PlacarActivity : AppCompatActivity() {
     }
 
     fun alteraPlacar (v:View){
-        game++
-        if ((game % 2) != 0) {
-            placar.resultado = ""+game+" vs "+ (game-1)
-        }else{
-            placar.resultado = ""+(game-1)+" vs "+ (game-1)
-            vibrar(v)
-        }
-        tvResultadoJogo.text=placar.resultado
+//        game++
+//        if ((game % 2) != 0) {
+//            placar.resultado = ""+game+" vs "+ (game-1)
+//        }else{
+//            placar.resultado = ""+(game-1)+" vs "+ (game-1)
+//            vibrar(v)
+//        }
+//        tvResultadoJogo.text=placar.resultado
     }
 
 
