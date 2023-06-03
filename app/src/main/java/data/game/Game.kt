@@ -1,5 +1,9 @@
 package data.game
 
-class Game {
+abstract class AbstractSoccerGame(
+    var MinutesPerGame: Integer, var Halfs: Integer, var ScoreTeam1: Integer,
+    var ScoreTeam2: Integer
+) {
+
 
 }
