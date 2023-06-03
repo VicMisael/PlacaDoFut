@@ -17,7 +17,10 @@
             android:exported="false" />
         <activity
             android:name=".PlacarActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|keyboardHidden"
+            />
         <activity
             android:name=".PreviousGamesActivity"
             android:exported="false" />
