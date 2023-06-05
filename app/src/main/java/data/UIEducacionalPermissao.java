@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.DialogFragment;
 
-public  class UIEducacionalPermissao extends DialogFragment {
+public  class  UIEducacionalPermissao extends DialogFragment {
 
     String mensagem;
     String titulo;

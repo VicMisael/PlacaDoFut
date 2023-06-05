@@ -48,20 +48,6 @@ class PlacarActivity : AppCompatActivity() {
     }
 
 
-    fun vibrar (v:View){
-        val buzzer = this.getSystemService<Vibrator>()
-         val pattern = longArrayOf(0, 200, 100, 300)
-         buzzer?.let {
-             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                 buzzer.vibrate(VibrationEffect.createWaveform(pattern, -1))
-             } else {
-                 //deprecated in API 26
-                 buzzer.vibrate(pattern, -1)
-             }
-         }
-
-    }
-
 
     fun saveGame(v: View) {
 
