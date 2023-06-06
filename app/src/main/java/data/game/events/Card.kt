@@ -1,5 +1,4 @@
 package data.game.events
 
-class Card {
-
+data class Card(val cardColor: CardColor):EventType {
 }
