@@ -1,4 +1,4 @@
 package data.game.events
 
-interface Event {
+interface EventType {
 }

@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import data.Placar
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun openPreviusGames(v: View) {
+    fun openPreviousGames(v: View) {
         val intent = Intent(this, PreviousGamesActivity::class.java).apply {
 
         }

@@ -1,4 +1,5 @@
 package data.game
 
-class Racha :Game {
+class Racha: Game() {
+
 }

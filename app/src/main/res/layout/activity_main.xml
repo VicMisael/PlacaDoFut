@@ -23,7 +23,7 @@
         android:id="@+id/btPreviousGame"
         android:layout_width="146dp"
         android:layout_height="60dp"
-        android:onClick="openPreviusGames"
+        android:onClick="openPreviousGames"
         android:text="Histórico"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

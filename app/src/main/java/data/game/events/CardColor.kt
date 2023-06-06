@@ -1,6 +1,6 @@
 package data.game.events
 
-enum class Enum {
+enum class CardColor {
     YELLOW,
     RED,
     BLUE
