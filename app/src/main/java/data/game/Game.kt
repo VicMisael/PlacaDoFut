@@ -28,4 +28,5 @@ abstract class Game(
         addEvent(Score(nome_equipe2))
         scoreTeamTwo++;
     }
+    abstract fun getNome():String;
 }

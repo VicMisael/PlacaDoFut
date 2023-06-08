@@ -28,12 +28,12 @@ class ConfigActivity : AppCompatActivity() {
     fun saveConfig(){
         val sharedFilename = "configPlacar"
         val sp:SharedPreferences = getSharedPreferences(sharedFilename,Context.MODE_PRIVATE)
-        var edShared = sp.edit()
+        val edShared = sp.edit()
 
 
         edShared.putString("matchname",placar.nome_partida)
         edShared.putBoolean("has_timer",placar.has_timer)
-        edShared.commit()
+        edShared.apply()
     }
     fun openConfig()
     {

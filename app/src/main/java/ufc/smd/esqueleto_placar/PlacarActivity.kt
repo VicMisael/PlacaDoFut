@@ -15,6 +15,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.core.content.getSystemService
 import data.Placar
+import data.game.Game
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 import java.io.ObjectInputStream
@@ -93,8 +94,9 @@ class PlacarActivity : AppCompatActivity() {
         if (matchStr.length >=1){
             var dis = ByteArrayInputStream(matchStr.toByteArray(Charsets.ISO_8859_1))
             var oos = ObjectInputStream(dis)
-            var prevPlacar:Placar = oos.readObject() as Placar
-            Log.v("PDM22", "Jogo Salvo:"+ prevPlacar.resultado)
+            var prevPlacar:Game = oos.readObject() as Game
+            Log.v("PDM22", "Jogo Salvo:"+ prevPlacar.nome_equipe1 + " Fez "+prevPlacar.scoresTeamOne)
+            Log.v("PDM22", "Jogo Salvo:"+ prevPlacar.nome_equipe2 + " Fez "+prevPlacar.scoreTeamTwo)
         }
 
     }
