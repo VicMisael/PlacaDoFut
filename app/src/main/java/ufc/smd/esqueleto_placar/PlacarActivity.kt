@@ -39,18 +39,18 @@ class PlacarActivity : AppCompatActivity() {
         chronometer.setOnChronometerTickListener( {
             /*
             sec [47, seconds]
-            min [1, minute,, 12, seconds]
-            hour [1, minute,, 12, seconds]
+            min [1, minute,, 47, seconds]
+            hour [1, hour,, 1, minute,, 47, seconds]
             */
             var time: List<String> = chronometer.getContentDescription().split(" ")
             var h: Int = 0
             var m: Int = 0
-            var s: Int = 0
+            var s: Int
 
-            if ("hour" in time) {
+            if (time.contains("hour,")) {
                 h = time[0].toInt()
             }
-            if ("minute" in time || "minutes" in time) {
+            if (time.contains("minute,") || time.contains("minutes,")) {
                 m = time[time.size-4].toInt()
             }
             s = time[time.size-2].toInt()
@@ -59,11 +59,15 @@ class PlacarActivity : AppCompatActivity() {
             Log.v("SMD26 h", h.toString())
             Log.v("SMD26 m", m.toString())
             Log.v("SMD26 s", s.toString())
-
-            if (m == 2 && s == 15) {
+            /*
+            * Racha -> 2 tempos de 15 minutos sem prorrogação e sem penaltis
+            * Copa -> 2 tempos de 45 minutos, com prorrogação e/ou penalti
+            * */
+            if (m == 1 && s == 15) {
                 chronometer.stop()
             }
         })
+
         chronometer.start()
         //Mudar o nome da partida
         val tvNomePartida=findViewById(R.id.tvNomePartida2) as TextView
