@@ -7,11 +7,15 @@ import android.content.SharedPreferences
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
+import android.os.SystemClock
 import android.os.VibrationEffect
 import android.os.Vibrator
 
 import android.util.Log
 import android.view.View
+import android.widget.Button
+import android.widget.Chronometer
 import android.widget.TextView
 import androidx.core.content.getSystemService
 import data.Placar
@@ -24,12 +28,43 @@ import java.nio.charset.StandardCharsets
 class PlacarActivity : AppCompatActivity() {
     lateinit var placar:Placar
     lateinit var tvResultadoJogo: TextView
+    lateinit var chronometer: Chronometer
     var game =0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_placar)
         placar= getIntent().getExtras()?.getSerializable("placar") as Placar
         tvResultadoJogo= findViewById(R.id.tvPlacar)
+        chronometer = findViewById(R.id.c_meter)
+        chronometer.setOnChronometerTickListener( {
+            /*
+            sec [47, seconds]
+            min [1, minute,, 12, seconds]
+            hour [1, minute,, 12, seconds]
+            */
+            var time: List<String> = chronometer.getContentDescription().split(" ")
+            var h: Int = 0
+            var m: Int = 0
+            var s: Int = 0
+
+            if ("hour" in time) {
+                h = time[0].toInt()
+            }
+            if ("minute" in time || "minutes" in time) {
+                m = time[time.size-4].toInt()
+            }
+            s = time[time.size-2].toInt()
+
+            Log.v("SMD26", time.toString())
+            Log.v("SMD26 h", h.toString())
+            Log.v("SMD26 m", m.toString())
+            Log.v("SMD26 s", s.toString())
+
+            if (m == 2 && s == 15) {
+                chronometer.stop()
+            }
+        })
+        chronometer.start()
         //Mudar o nome da partida
         val tvNomePartida=findViewById(R.id.tvNomePartida2) as TextView
         tvNomePartida.text=placar.nome_partida
@@ -98,4 +133,27 @@ class PlacarActivity : AppCompatActivity() {
         }
 
     }
+
+//    fun iniciarPartida () {
+//        var isWorking = false
+//
+//        override fun onClick(v: View) {
+//            if (!isWorking) {
+//                meter.start()
+//                isWorking = true
+//            } else {
+//                meter.stop()
+//                isWorking = false
+//            }
+//
+//            btn.setText(if (isWorking) R.string.start else R.string.stop)
+//
+//            Toast.makeText(this@MainActivity, getString(
+//                if (isWorking)
+//                    R.string.working
+//                else
+//                    R.string.stopped),
+//                Toast.LENGTH_SHORT).show()
+//        }
+//    }
 }
