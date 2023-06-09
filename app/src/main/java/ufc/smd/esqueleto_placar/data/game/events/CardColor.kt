@@ -1,4 +1,4 @@
-package data.game.events
+package ufc.smd.esqueleto_placar.data.game.events
 
 enum class CardColor {
     YELLOW,

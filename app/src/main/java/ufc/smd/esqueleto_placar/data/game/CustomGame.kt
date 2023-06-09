@@ -1,4 +1,4 @@
-package data.game
+package ufc.smd.esqueleto_placar.data.game
 
 class CustomGame(
     val nome_modo: String,

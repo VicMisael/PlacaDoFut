@@ -7,6 +7,18 @@
     tools:context=".ConfigActivity">
 
     <EditText
+        android:id="@+id/equipe2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/modos"
+        app:layout_constraintTop_toBottomOf="@+id/equipe1"
+        app:layout_constraintVertical_bias="0.125"
+        tools:layout_editor_absoluteX="105dp" />
+
+    <EditText
         android:id="@+id/editTextGameName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,8 +27,10 @@
         android:text="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.259" />
 
     <TextView
         android:id="@+id/tvNomePartida"
@@ -28,7 +42,8 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/editTextGameName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Switch
         android:id="@+id/swTimer"
@@ -48,6 +63,31 @@
         android:text="Iniciar Jogo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/swTimer" />
+        app:layout_constraintTop_toBottomOf="@+id/swTimer"
+        app:layout_constraintVertical_bias="0.863" />
+
+    <Spinner
+        android:id="@+id/modos"
+        android:layout_width="191dp"
+        android:layout_height="36dp"
+        app:layout_constraintBottom_toTopOf="@+id/btInitGame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/swTimer"
+        app:layout_constraintVertical_bias="0.778" />
+
+    <EditText
+        android:id="@+id/equipe1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/modos"
+        app:layout_constraintTop_toBottomOf="@+id/swTimer"
+        app:layout_constraintVertical_bias="0.116"
+        tools:layout_editor_absoluteX="105dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

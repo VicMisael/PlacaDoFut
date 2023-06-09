@@ -14,8 +14,8 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.core.content.getSystemService
-import data.Placar
-import data.game.Game
+import ufc.smd.esqueleto_placar.data.Placar
+import ufc.smd.esqueleto_placar.data.game.Game
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 import java.io.ObjectInputStream
@@ -23,18 +23,18 @@ import java.io.ObjectOutputStream
 import java.nio.charset.StandardCharsets
 
 class PlacarActivity : AppCompatActivity() {
-    lateinit var placar:Placar
+    lateinit var placar: Game
     lateinit var tvResultadoJogo: TextView
     var game =0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_placar)
-        placar= getIntent().getExtras()?.getSerializable("placar") as Placar
-        tvResultadoJogo= findViewById(R.id.tvPlacar)
+        //placar= getIntent().getExtras()?.getSerializable("game") as Game
+        //tvResultadoJogo= findViewById(R.id.tvPlacar)
         //Mudar o nome da partida
-        val tvNomePartida=findViewById(R.id.tvNomePartida2) as TextView
-        tvNomePartida.text=placar.nome_partida
-        ultimoJogos()
+        //val tvNomePartida=findViewById(R.id.tvNomePartida2) as TextView
+        //tvNomePartida.text=placar.nome_partida
+        //ultimoJogos()
     }
 
     fun alteraPlacar (v:View){
@@ -78,8 +78,8 @@ class PlacarActivity : AppCompatActivity() {
         if (meuObjString.length >=1) {
             var dis = ByteArrayInputStream(meuObjString.toByteArray(Charsets.ISO_8859_1))
             var oos = ObjectInputStream(dis)
-            var placarAntigo:Placar=oos.readObject() as Placar
-            Log.v("SMD26",placar.resultado)
+            var placarAntigo: Placar =oos.readObject() as Placar
+            Log.v("SMD26",placar.nome_equipe1)
         }
     }
 
@@ -94,7 +94,7 @@ class PlacarActivity : AppCompatActivity() {
         if (matchStr.length >=1){
             var dis = ByteArrayInputStream(matchStr.toByteArray(Charsets.ISO_8859_1))
             var oos = ObjectInputStream(dis)
-            var prevPlacar:Game = oos.readObject() as Game
+            var prevPlacar: Game = oos.readObject() as Game
             Log.v("PDM22", "Jogo Salvo:"+ prevPlacar.nome_equipe1 + " Fez "+prevPlacar.scoresTeamOne)
             Log.v("PDM22", "Jogo Salvo:"+ prevPlacar.nome_equipe2 + " Fez "+prevPlacar.scoreTeamTwo)
         }

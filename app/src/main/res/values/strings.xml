@@ -2,4 +2,5 @@
     <string name="app_name">Vem Pro Fut </string>
     <string name="semPerLigar">Sua aplicação não tem permissão para ligar</string>
     <string name="semPerLoca">Sua aplicação não tem acesso à localização</string>
+    <string name="title_activity_custom_game">CustomGameActivity</string>
 </resources>
