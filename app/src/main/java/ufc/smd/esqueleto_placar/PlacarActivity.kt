@@ -37,33 +37,13 @@ class PlacarActivity : AppCompatActivity() {
         tvResultadoJogo= findViewById(R.id.tvPlacar)
         chronometer = findViewById(R.id.c_meter)
         chronometer.setOnChronometerTickListener( {
-            /*
-            sec [47, seconds]
-            min [1, minute,, 47, seconds]
-            hour [1, hour,, 1, minute,, 47, seconds]
-            */
-            var time: List<String> = chronometer.getContentDescription().split(" ")
-            var h: Int = 0
-            var m: Int = 0
-            var s: Int
-
-            if (time.contains("hour,")) {
-                h = time[0].toInt()
-            }
-            if (time.contains("minute,") || time.contains("minutes,")) {
-                m = time[time.size-4].toInt()
-            }
-            s = time[time.size-2].toInt()
-
-            Log.v("SMD26", time.toString())
-            Log.v("SMD26 h", h.toString())
-            Log.v("SMD26 m", m.toString())
-            Log.v("SMD26 s", s.toString())
+            val (h, m, s) = getTime(chronometer.getContentDescription())
             /*
             * Racha -> 2 tempos de 15 minutos sem prorrogação e sem penaltis
             * Copa -> 2 tempos de 45 minutos, com prorrogação e/ou penalti
+            * Custom -> 2 tempos de x minutos,sem/com prorrogação e sem/e/ou penaltis
             * */
-            if (m == 1 && s == 15) {
+            if (h == 0 && m == 1 && s == 15) {
                 chronometer.stop()
             }
         })
@@ -73,6 +53,31 @@ class PlacarActivity : AppCompatActivity() {
         val tvNomePartida=findViewById(R.id.tvNomePartida2) as TextView
         tvNomePartida.text=placar.nome_partida
         ultimoJogos()
+    }
+
+    fun timeIsOver(h: Int, m: Int, s: Int): Boolean {
+        return true
+    }
+
+    fun getTime(chronContent: CharSequence): Triple<Int, Int, Int> {
+        val time: List<String> = chronContent.split(" ")
+        var h: Int = 0
+        var m: Int = 0
+
+        if (time.contains("hour,") || time.contains("hours,")) {
+            h = time[0].toInt()
+        }
+        if (time.contains("minute,") || time.contains("minutes,")) {
+            m = time[time.size-4].toInt()
+        }
+        val s: Int = time[time.size-2].toInt()
+
+        Log.v("SMD26", time.toString())
+        Log.v("SMD26 h", h.toString())
+        Log.v("SMD26 m", m.toString())
+        Log.v("SMD26 s", s.toString())
+
+        return Triple(h, m, s)
     }
 
     fun alteraPlacar (v:View){
