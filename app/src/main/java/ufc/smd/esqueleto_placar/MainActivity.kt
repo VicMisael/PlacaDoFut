@@ -14,7 +14,6 @@ class MainActivity : AppCompatActivity() {
     fun openConfig(v: View){
         val intent = Intent(this, ConfigActivity::class.java).apply{}
         startActivity(intent)
-
     }
 
     fun openPreviousGames(v: View) {

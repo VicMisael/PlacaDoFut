@@ -1,4 +1,4 @@
-package data
+package ufc.smd.esqueleto_placar.data
 
 import java.io.Serializable
 

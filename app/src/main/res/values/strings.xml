@@ -8,4 +8,5 @@
 <!--    <string name="timerStopped">Stopped</string>-->
 <!--    <string name="restartTimer">Start Timer</string>-->
 <!--    <string name="timerRestarted">Stopped</string>-->
+    <string name="title_activity_custom_game">CustomGameActivity</string>
 </resources>

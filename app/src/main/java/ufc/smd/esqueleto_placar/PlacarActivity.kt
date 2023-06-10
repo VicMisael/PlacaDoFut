@@ -18,7 +18,8 @@ import android.widget.Button
 import android.widget.Chronometer
 import android.widget.TextView
 import androidx.core.content.getSystemService
-import data.Placar
+import ufc.smd.esqueleto_placar.data.Placar
+import ufc.smd.esqueleto_placar.data.game.Game
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 import java.io.ObjectInputStream
@@ -26,7 +27,7 @@ import java.io.ObjectOutputStream
 import java.nio.charset.StandardCharsets
 
 class PlacarActivity : AppCompatActivity() {
-    lateinit var placar:Placar
+    lateinit var placar: Game
     lateinit var tvResultadoJogo: TextView
     lateinit var chronometer: Chronometer
     var game =0
@@ -49,10 +50,12 @@ class PlacarActivity : AppCompatActivity() {
         })
 
         chronometer.start()
+        //placar= getIntent().getExtras()?.getSerializable("game") as Game
+        //tvResultadoJogo= findViewById(R.id.tvPlacar)
         //Mudar o nome da partida
-        val tvNomePartida=findViewById(R.id.tvNomePartida2) as TextView
-        tvNomePartida.text=placar.nome_partida
-        ultimoJogos()
+        //val tvNomePartida=findViewById(R.id.tvNomePartida2) as TextView
+        //tvNomePartida.text=placar.nome_partida
+        //ultimoJogos()
     }
 
     fun timeIsOver(h: Int, m: Int, s: Int): Boolean {
@@ -121,8 +124,8 @@ class PlacarActivity : AppCompatActivity() {
         if (meuObjString.length >=1) {
             var dis = ByteArrayInputStream(meuObjString.toByteArray(Charsets.ISO_8859_1))
             var oos = ObjectInputStream(dis)
-            var placarAntigo:Placar=oos.readObject() as Placar
-            Log.v("SMD26",placar.resultado)
+            var placarAntigo: Placar =oos.readObject() as Placar
+            Log.v("SMD26",placar.nome_equipe1)
         }
     }
 
@@ -137,8 +140,9 @@ class PlacarActivity : AppCompatActivity() {
         if (matchStr.length >=1){
             var dis = ByteArrayInputStream(matchStr.toByteArray(Charsets.ISO_8859_1))
             var oos = ObjectInputStream(dis)
-            var prevPlacar:Placar = oos.readObject() as Placar
-            Log.v("PDM22", "Jogo Salvo:"+ prevPlacar.resultado)
+            var prevPlacar: Game = oos.readObject() as Game
+            Log.v("PDM22", "Jogo Salvo:"+ prevPlacar.nome_equipe1 + " Fez "+prevPlacar.scoresTeamOne)
+            Log.v("PDM22", "Jogo Salvo:"+ prevPlacar.nome_equipe2 + " Fez "+prevPlacar.scoreTeamTwo)
         }
 
     }

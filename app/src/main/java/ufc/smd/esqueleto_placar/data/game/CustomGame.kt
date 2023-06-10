@@ -1,6 +1,7 @@
-package data.game
+package ufc.smd.esqueleto_placar.data.game
 
 class CustomGame(
+    val nome_modo: String,
     nome_partida: String,
     nome_equipe1: String,
     nome_equipe2: String,
@@ -16,4 +17,9 @@ class CustomGame(
     halfs,
     scoresTeamOne = 0,
     scoreTeamTwo = 0
-) {}
+) {
+
+    override fun getNome():String {
+        return nome_modo;
+    }
+}

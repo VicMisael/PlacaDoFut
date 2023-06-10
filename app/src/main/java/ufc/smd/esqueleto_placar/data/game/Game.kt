@@ -1,7 +1,7 @@
-package data.game
+package ufc.smd.esqueleto_placar.data.game
 
-import data.game.events.EventType
-import data.game.events.Score
+import ufc.smd.esqueleto_placar.data.game.events.EventType
+import ufc.smd.esqueleto_placar.data.game.events.Score
 import java.io.Serializable
 
 abstract class Game(
@@ -27,5 +27,9 @@ abstract class Game(
     fun scoreTeamTwo(){
         addEvent(Score(nome_equipe2))
         scoreTeamTwo++;
+    }
+    abstract fun getNome():String;
+    override fun toString(): String {
+        return getNome();
     }
 }
