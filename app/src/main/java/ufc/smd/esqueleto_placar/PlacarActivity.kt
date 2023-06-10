@@ -95,7 +95,7 @@ class PlacarActivity : AppCompatActivity() {
             var dis = ByteArrayInputStream(matchStr.toByteArray(Charsets.ISO_8859_1))
             var oos = ObjectInputStream(dis)
             var prevPlacar: Game = oos.readObject() as Game
-            Log.v("PDM22", "Jogo Salvo:"+ prevPlacar.nome_equipe1 + " Fez "+prevPlacar.scoresTeamOne)
+            Log.v("PDM22", "Jogo Salvo:"+ prevPlacar.nome_equipe1 + " Fez "+prevPlacar.scoreTeamOne)
             Log.v("PDM22", "Jogo Salvo:"+ prevPlacar.nome_equipe2 + " Fez "+prevPlacar.scoreTeamTwo)
         }
 
