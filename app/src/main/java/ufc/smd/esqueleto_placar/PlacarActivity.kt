@@ -34,7 +34,7 @@ class PlacarActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_placar)
-        placar= getIntent().getExtras()?.getSerializable("placar") as Placar
+        placar= getIntent().getExtras()?.getSerializable("game") as Game
         tvResultadoJogo= findViewById(R.id.tvPlacar)
         chronometer = findViewById(R.id.c_meter)
         chronometer.setOnChronometerTickListener( {
