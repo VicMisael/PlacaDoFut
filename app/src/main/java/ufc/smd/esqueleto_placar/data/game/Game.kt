@@ -6,6 +6,7 @@ import ufc.smd.esqueleto_placar.data.game.events.CardColor
 import ufc.smd.esqueleto_placar.data.game.events.EventType
 import ufc.smd.esqueleto_placar.data.game.events.Score
 import java.io.Serializable
+import java.util.Stack
 
 abstract class Game(
     var nome_partida: String,
@@ -14,7 +15,7 @@ abstract class Game(
     var has_timer: Boolean,
     var seconds: Int,
     var halfs: Int,
-    var events: ArrayDeque<EventType> = ArrayDeque()
+    var events: Stack<EventType> = Stack()
 ) : Serializable {
 
     var team1: Team = Team(nome_equipe1);
@@ -26,11 +27,11 @@ abstract class Game(
 
 
     private fun addEvent(event: EventType) {
-        events.addLast(event);
+        events.push(event);
     }
 
     fun rollback() {
-        val event = events.removeLast()
+        val event = events.pop()
         val selTeam: Team = when (event.teamNumber) {
             1 -> team1;
             2 -> team2;

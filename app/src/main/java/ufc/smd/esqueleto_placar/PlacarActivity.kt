@@ -29,12 +29,12 @@ class PlacarActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_placar)
-        //placar= getIntent().getExtras()?.getSerializable("game") as Game
-        //tvResultadoJogo= findViewById(R.id.tvPlacar)
-        //Mudar o nome da partida
-        //val tvNomePartida=findViewById(R.id.tvNomePartida2) as TextView
-        //tvNomePartida.text=placar.nome_partida
-        //ultimoJogos()
+        placar= getIntent().getExtras()?.getSerializable("game") as Game
+        tvResultadoJogo= findViewById(R.id.tvPlacar)
+//        Mudar o nome da partida
+        val tvNomePartida=findViewById(R.id.tvNomePartida2) as TextView
+        tvNomePartida.text=placar.nome_partida
+        ultimoJogos()
     }
 
     fun alteraPlacar (v:View){
