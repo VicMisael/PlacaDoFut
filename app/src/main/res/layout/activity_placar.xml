@@ -9,15 +9,27 @@
     android:screenOrientation="portrait"
     tools:context=".PlacarActivity">
 
+    <ImageButton
+        android:id="@+id/redTeam2"
+        android:layout_width="72dp"
+        android:layout_height="68dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.543"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/yellowTeam2"
+        app:layout_constraintVertical_bias="0.075"
+        app:srcCompat="@mipmap/red_card" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
+        android:id="@+id/goalTeam2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.883"
-        app:layout_constraintStart_toEndOf="@+id/floatingActionButton"
+        app:layout_constraintStart_toEndOf="@+id/goalTeam1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.783"
         app:srcCompat="@drawable/baseline_sports_soccer_24" />
@@ -149,7 +161,7 @@
         app:layout_constraintVertical_bias="0.168" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/goalTeam1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -162,7 +174,7 @@
         app:srcCompat="@drawable/baseline_sports_soccer_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton3"
+        android:id="@+id/rollback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -197,5 +209,40 @@
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toBottomOf="@+id/tvPlacar"-->
 <!--        app:layout_constraintVertical_bias="0.502" />-->
+
+    <ImageButton
+        android:id="@+id/yellowTeam1"
+        android:layout_width="63dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/goalTeam1"
+        app:layout_constraintEnd_toStartOf="@+id/tvPlacar2"
+        app:layout_constraintHorizontal_bias="0.427"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55"
+        app:srcCompat="@mipmap/yellow_card_foreground" />
+
+    <ImageButton
+        android:id="@+id/yellowTeam2"
+        android:layout_width="74dp"
+        android:layout_height="66dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.754"
+        app:layout_constraintStart_toEndOf="@+id/yellowTeam1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.341"
+        app:srcCompat="@mipmap/yellow_card_foreground" />
+
+    <ImageButton
+        android:id="@+id/redTeam1"
+        android:layout_width="72dp"
+        android:layout_height="68dp"
+        app:layout_constraintBottom_toTopOf="@+id/goalTeam1"
+        app:layout_constraintEnd_toStartOf="@+id/textView5"
+        app:layout_constraintHorizontal_bias="0.286"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yellowTeam1"
+        app:srcCompat="@mipmap/red_card" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

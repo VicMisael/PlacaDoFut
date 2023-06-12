@@ -15,8 +15,6 @@ class CustomGame(
     has_timer,
     seconds,
     halfs,
-    scoresTeamOne = 0,
-    scoreTeamTwo = 0
 ) {
 
     override fun getNome():String {

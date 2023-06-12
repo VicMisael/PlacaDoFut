@@ -9,6 +9,7 @@ import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ufc.smd.esqueleto_placar.data.Placar
+import ufc.smd.esqueleto_placar.data.game.Game
 import java.io.ByteArrayInputStream
 import java.io.ObjectInputStream
 import java.text.SimpleDateFormat
@@ -49,9 +50,9 @@ class PreviousGamesActivity : AppCompatActivity() {
 
     }
 
-    fun readPLacarDataSharedPreferences(): ArrayList<Placar> {
+    fun readPLacarDataSharedPreferences(): ArrayList<Game> {
         Log.v("PDM", "Lendo o Shared Preferences")
-        val data = ArrayList<Placar>()
+        val data = ArrayList<Game>()
         val sharedFileName = "PreviousGames"
         var aux: String
         var sp: SharedPreferences = getSharedPreferences(sharedFileName, Context.MODE_PRIVATE)
@@ -67,10 +68,10 @@ class PreviousGamesActivity : AppCompatActivity() {
                     var obi: ObjectInputStream
                     obi = ObjectInputStream(bis)
 
-                    var placar: Placar = obi.readObject() as Placar
+                    var placar: Game = obi.readObject() as Game
                     data.add(placar)
                     //Log.v("PDM", "match"+i+" :"+aux)
-                    Log.v("PDM", "Placar: " + placar.nome_partida + " Res:" + placar.resultadoLongo)
+                    Log.v("PDM", "Placar: $placar");
                 }
             }
         }

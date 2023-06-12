@@ -13,8 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import ufc.smd.esqueleto_placar.data.Placar
 import ufc.smd.esqueleto_placar.R
+import ufc.smd.esqueleto_placar.data.game.Game
 
-class CustomAdapter(private val mList: List<Placar>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+class CustomAdapter(private val mList: List<Game>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
 
     // Criação de Novos ViewHolders
@@ -40,11 +41,11 @@ class CustomAdapter(private val mList: List<Placar>) : RecyclerView.Adapter<Cust
 
         //alimentando os elementos a partir do objeto placar
         holder.tvNomePartida.text = placarAnterior.nome_partida
-        holder.tvResultadoJogo.text = placarAnterior.resultado
+        holder.tvResultadoJogo.text = placarAnterior.description
 
         holder.lnCell.setOnClickListener{
             val duration= Snackbar.LENGTH_LONG
-            val text= placarAnterior.resultadoLongo
+            val text= placarAnterior.description
 
             val snack= Snackbar.make(holder.lnCell,text,duration)
             snack.show()
