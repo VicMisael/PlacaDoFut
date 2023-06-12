@@ -93,7 +93,7 @@ class PlacarActivity : AppCompatActivity() {
         if (meuObjString.length >= 1) {
             var dis = ByteArrayInputStream(meuObjString.toByteArray(Charsets.ISO_8859_1))
             var oos = ObjectInputStream(dis)
-            var placarAntigo: Game = oos.readObject() as Game
+            var placarAntigo = oos.readObject()
             Log.v("SMD26", game.nome_equipe1)
         }
     }

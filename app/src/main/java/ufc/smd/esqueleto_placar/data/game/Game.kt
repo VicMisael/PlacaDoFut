@@ -19,7 +19,9 @@ abstract class Game(
     var pastSeconds: Int = 0,
     var events: Stack<EventType> = Stack()
 ) : Serializable {
-
+    companion object {
+        @JvmStatic private val serialVersionUID: Long = 6529685098267757690L
+    }
     var team1: Team = Team(nome_equipe1);
     var team2: Team = Team(nome_equipe2);
 

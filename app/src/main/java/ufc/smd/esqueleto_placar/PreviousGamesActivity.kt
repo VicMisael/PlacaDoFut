@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ufc.smd.esqueleto_placar.data.Placar
 import ufc.smd.esqueleto_placar.data.game.Game
+import ufc.smd.esqueleto_placar.data.game.Normal
 import java.io.ByteArrayInputStream
 import java.io.ObjectInputStream
 import java.text.SimpleDateFormat
@@ -68,7 +69,7 @@ class PreviousGamesActivity : AppCompatActivity() {
                     var obi: ObjectInputStream
                     obi = ObjectInputStream(bis)
 
-                    var placar: Game = obi.readObject() as Game
+                    var placar:Game = obi.readObject() as Game
                     data.add(placar)
                     //Log.v("PDM", "match"+i+" :"+aux)
                     Log.v("PDM", "Placar: $placar");
