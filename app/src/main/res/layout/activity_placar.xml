@@ -24,7 +24,7 @@
     </View>
 
     <TextView
-        android:id="@+id/tvPlacar3"
+        android:id="@+id/tvPlacar"
         android:layout_width="224dp"
         android:layout_height="252dp"
         android:layout_gravity="center"
@@ -37,25 +37,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/linearLayout"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/floatingActionButton"
+        app:layout_constraintStart_toStartOf="@+id/goalTeam1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.731" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:backgroundTint="@color/white"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
-        app:layout_constraintHorizontal_bias="0.246"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.878"
-        app:srcCompat="@drawable/baseline_sports_soccer_24"
-        tools:ignore="MissingConstraints" />
 
     <View
         android:id="@+id/rightView"
@@ -66,21 +50,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/leftView"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/white"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.786"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.878"
-        app:srcCompat="@drawable/baseline_sports_soccer_24" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -105,7 +74,7 @@
         android:textColor="@color/black"
         android:textSize="170dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/floatingActionButton2"
+        app:layout_constraintEnd_toEndOf="@+id/goalTeam2"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="@+id/rightView"
@@ -115,17 +84,16 @@
         android:id="@+id/time1"
         android:layout_width="205dp"
         android:layout_height="44dp"
+        android:fontFamily="@font/play"
         android:gravity="center"
         android:text="Equipe 1"
-        android:textSize="35dp"
         android:textColor="@color/white"
-        android:fontFamily="@font/play"
-        app:layout_constraintBottom_toTopOf="@+id/tvPlacar3"
-        app:layout_constraintEnd_toEndOf="@+id/tvPlacar3"
-        app:layout_constraintHorizontal_bias="0.684"
-        app:layout_constraintStart_toStartOf="@+id/tvPlacar3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        android:textSize="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvPlacar"
+        app:layout_constraintStart_toStartOf="@+id/tvPlacar"
+        app:layout_constraintTop_toTopOf="@+id/leftView"
+        app:layout_constraintVertical_bias="0.196" />
 
     <TextView
         android:id="@+id/time2"
@@ -143,7 +111,7 @@
         app:layout_constraintVertical_bias="0.196" />
 
     <ImageButton
-        android:id="@+id/floatingActionButton3"
+        android:id="@+id/rollback"
         android:layout_width="32dp"
         android:layout_height="37dp"
 
@@ -166,6 +134,37 @@
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/goalTeam2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/white"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.786"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.878"
+        app:srcCompat="@drawable/baseline_sports_soccer_24" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/goalTeam1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:backgroundTint="@color/white"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+        app:layout_constraintHorizontal_bias="0.246"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.878"
+        app:srcCompat="@drawable/baseline_sports_soccer_24"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

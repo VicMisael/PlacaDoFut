@@ -7,11 +7,10 @@ import android.os.Bundle
 
 import android.util.Log
 import android.view.View
-import android.widget.Button
 import android.widget.Chronometer
+import android.widget.ImageButton
 import android.widget.TextView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import ufc.smd.esqueleto_placar.data.Placar
 import ufc.smd.esqueleto_placar.data.game.Game
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
@@ -25,13 +24,14 @@ class PlacarActivity : AppCompatActivity() {
     lateinit var chronometer: Chronometer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
         setContentView(R.layout.activity_placar)
         game = getIntent().getExtras()?.getSerializable("game") as Game
         tvResultadoJogo = findViewById(R.id.tvPlacar)
         chronometer = findViewById(R.id.c_meter)
-        val goalTeam1:FloatingActionButton = findViewById(R.id.goalTeam1);
-        val goalTeam2:FloatingActionButton = findViewById(R.id.goalTeam2);
-        val rollback:FloatingActionButton =findViewById(R.id.rollback);
+        val goalTeam1:FloatingActionButton = findViewById(R.id.goalTeam2);
+        val goalTeam2:FloatingActionButton = findViewById(R.id.goalTeam1);
+        val rollback:ImageButton =findViewById(R.id.rollback);
         rollback.setOnClickListener {
             game.rollback()
             update()
@@ -58,7 +58,7 @@ class PlacarActivity : AppCompatActivity() {
 
     private fun update() {
         val placarEs: TextView = findViewById(R.id.tvPlacar2)
-        val placarDi: TextView = findViewById(R.id.tvPlacar3)
+        val placarDi: TextView = findViewById(R.id.tvPlacar)
         placarEs.text = game.team1.gols.toString()
         placarDi.text = game.team2.gols.toString()
 
