@@ -22,6 +22,7 @@ class PlacarActivity : AppCompatActivity() {
     lateinit var game: Game
     lateinit var tvResultadoJogo: TextView
     lateinit var chronometer: Chronometer
+    var acrescimo=0;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
@@ -32,6 +33,9 @@ class PlacarActivity : AppCompatActivity() {
         val goalTeam1:FloatingActionButton = findViewById(R.id.goalTeam2);
         val goalTeam2:FloatingActionButton = findViewById(R.id.goalTeam1);
         val rollback:ImageButton =findViewById(R.id.rollback);
+        val acrescimo:FloatingActionButton = findViewById(R.id.acrescimo);
+
+        acrescimo.hide();
         rollback.setOnClickListener {
             game.rollback()
             update()
@@ -48,9 +52,11 @@ class PlacarActivity : AppCompatActivity() {
         }
 
         chronometer.setOnChronometerTickListener {
-            if (game.has_timer) {
                 game.pastSeconds++;
-            }
+                if(game.pastSeconds>=game.seconds*0.95){
+                    acrescimo.show()
+                }
+
         }
 
         chronometer.start()

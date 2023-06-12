@@ -12,7 +12,6 @@ abstract class Game(
     var nome_partida: String,
     var nome_equipe1: String,
     var nome_equipe2: String,
-    var has_timer: Boolean,
     var seconds: Int,
     var halfs: Int,
     var half: Int = 0,
