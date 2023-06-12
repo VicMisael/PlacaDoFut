@@ -9,213 +9,163 @@
     android:screenOrientation="portrait"
     tools:context=".PlacarActivity">
 
-    <ImageButton
-        android:id="@+id/redTeam2"
-        android:layout_width="72dp"
-        android:layout_height="68dp"
+    <View
+        android:id="@+id/leftView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/left_view"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.543"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/yellowTeam2"
-        app:layout_constraintVertical_bias="0.075"
-        app:srcCompat="@mipmap/red_card" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.883"
-        app:layout_constraintStart_toEndOf="@+id/floatingActionButton"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.783"
-        app:srcCompat="@drawable/baseline_sports_soccer_24" />
-
-    <Button
-        android:id="@+id/btSalvarPlacar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="saveGame"
-        android:text="Salvar Placar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/rightView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.691" />
+        app:layout_constraintVertical_bias="1.0">
 
-    <TextView
-        android:id="@+id/tvPlacar"
-        android:layout_width="48dp"
-        android:layout_height="62dp"
-        android:minWidth="48dp"
-        android:onClick="alteraPlacar"
-        android:text="X"
-        android:textSize="48sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/time2"
-        app:layout_constraintVertical_bias="0.143" />
+
+    </View>
 
     <TextView
         android:id="@+id/tvPlacar3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minWidth="48dp"
-        android:onClick="alteraPlacar"
+        android:layout_width="224dp"
+        android:layout_height="252dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/squaredeal"
+        android:gravity="center"
         android:text="0"
-        android:textSize="48sp"
-        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="170dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.151"
-        app:layout_constraintStart_toEndOf="@+id/tvPlacar"
-        app:layout_constraintTop_toBottomOf="@+id/time2"
-        app:layout_constraintVertical_bias="0.143" />
-
-    <TextView
-        android:id="@+id/tvPlacar2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minWidth="48dp"
-        android:onClick="alteraPlacar"
-        android:text="0"
-        android:textSize="48sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvPlacar"
-        app:layout_constraintHorizontal_bias="0.848"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/time1"
-        app:layout_constraintVertical_bias="0.143" />
-
-    <TextView
-        android:id="@+id/tvNomePartida2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Partida"
-        android:textSize="34sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/tvPlacar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/floatingActionButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/btVerJogos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="lerUltimosJogos"
-        android:text="Resultado Anterior"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btSalvarPlacar"
-        app:layout_constraintVertical_bias="0.546" />
-
-    <TextView
-        android:id="@+id/time1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="time1"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/time2"
-        app:layout_constraintHorizontal_bias="0.698"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.168" />
-
-    <TextView
-        android:id="@+id/time2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Time2"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.631"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.168" />
+        app:layout_constraintVertical_bias="0.731" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:backgroundTint="@color/white"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.128"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+        app:layout_constraintHorizontal_bias="0.246"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.783"
-        app:srcCompat="@drawable/baseline_sports_soccer_24" />
+        app:layout_constraintVertical_bias="0.878"
+        app:srcCompat="@drawable/baseline_sports_soccer_24"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/rightView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/right_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/leftView"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton3"
+        android:id="@+id/floatingActionButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/white"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.908"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.786"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.045"
-        app:srcCompat="@drawable/baseline_settings_backup_restore_24" />
+        app:layout_constraintVertical_bias="0.878"
+        app:srcCompat="@drawable/baseline_sports_soccer_24" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="19:14"
-        app:layout_constraintBottom_toTopOf="@+id/btSalvarPlacar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPlacar" />
-
-    <ImageButton
-        android:id="@+id/yellowTeam1"
-        android:layout_width="63dp"
-        android:layout_height="60dp"
-        app:layout_constraintBottom_toTopOf="@+id/floatingActionButton"
-        app:layout_constraintEnd_toStartOf="@+id/tvPlacar2"
-        app:layout_constraintHorizontal_bias="0.427"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55"
-        app:srcCompat="@mipmap/yellow_card_foreground" />
-
-    <ImageButton
-        android:id="@+id/yellowTeam2"
-        android:layout_width="74dp"
-        android:layout_height="66dp"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="171dp"
+        android:layout_height="37dp"
+        android:background="@drawable/oval_background"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.754"
-        app:layout_constraintStart_toEndOf="@+id/yellowTeam1"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.341"
-        app:srcCompat="@mipmap/yellow_card_foreground" />
+        app:layout_constraintVertical_bias="0.018"></LinearLayout>
+
+    <TextView
+        android:id="@+id/tvPlacar2"
+        android:layout_width="231dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:fontFamily="@font/squaredeal"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="@color/black"
+        android:textSize="170dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/floatingActionButton2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/rightView"
+        app:layout_constraintVertical_bias="0.72" />
+
+    <TextView
+        android:id="@+id/time1"
+        android:layout_width="205dp"
+        android:layout_height="44dp"
+        android:gravity="center"
+        android:text="Equipe 1"
+        android:textSize="35dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/play"
+        app:layout_constraintBottom_toTopOf="@+id/tvPlacar3"
+        app:layout_constraintEnd_toEndOf="@+id/tvPlacar3"
+        app:layout_constraintHorizontal_bias="0.684"
+        app:layout_constraintStart_toStartOf="@+id/tvPlacar3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/time2"
+        android:layout_width="205dp"
+        android:layout_height="44dp"
+        android:fontFamily="@font/play"
+        android:gravity="center"
+        android:text="Equipe 2"
+        android:textColor="@color/black"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rightView"
+        app:layout_constraintEnd_toEndOf="@+id/tvPlacar2"
+        app:layout_constraintStart_toStartOf="@+id/tvPlacar2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.196" />
 
     <ImageButton
-        android:id="@+id/redTeam1"
-        android:layout_width="72dp"
-        android:layout_height="68dp"
-        app:layout_constraintBottom_toTopOf="@+id/floatingActionButton"
-        app:layout_constraintEnd_toStartOf="@+id/textView5"
-        app:layout_constraintHorizontal_bias="0.286"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yellowTeam1"
-        app:srcCompat="@mipmap/red_card" />
+        android:id="@+id/floatingActionButton3"
+        android:layout_width="32dp"
+        android:layout_height="37dp"
+
+        android:background="@drawable/oval_background"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        app:srcCompat="@drawable/baseline_settings_backup_restore_24"
+        app:tint="@color/black" />
+
+    <Chronometer
+        android:id="@+id/c_meter"
+        android:layout_width="95dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="22dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
