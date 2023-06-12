@@ -6,6 +6,7 @@ import ufc.smd.esqueleto_placar.data.game.events.CardColor
 import ufc.smd.esqueleto_placar.data.game.events.EventType
 import ufc.smd.esqueleto_placar.data.game.events.Score
 import java.io.Serializable
+import java.util.Stack
 
 abstract class Game(
     var nome_partida: String,
@@ -14,7 +15,9 @@ abstract class Game(
     var has_timer: Boolean,
     var seconds: Int,
     var halfs: Int,
-    var events: ArrayDeque<EventType> = ArrayDeque()
+    var half: Int = 0,
+    var pastSeconds: Int = 0,
+    var events: Stack<EventType> = Stack()
 ) : Serializable {
 
     var team1: Team = Team(nome_equipe1);
@@ -24,54 +27,68 @@ abstract class Game(
     val scoreTeamOne get() = team1.gols;
     val scoreTeamTwo get() = team2.gols;
 
+    val description get() = " A partida $nome_partida terminou com ${team1.gols} pra $nome_equipe1 e ${team2.gols} para a $nome_equipe2 "
 
     private fun addEvent(event: EventType) {
-        events.addLast(event);
+        events.push(event);
     }
 
     fun rollback() {
-        val event = events.removeLast()
-        val selTeam: Team = when (event.teamNumber) {
-            1 -> team1;
-            2 -> team2;
-            else -> {
-                Log.e("VemProFut", "Equipe Invalida");
-                return
-            }
-        }
-        when(event){
-            is Score->selTeam.gols--;
-            is Card -> {
-                when(event.cardColor){
-                    CardColor.YELLOW -> selTeam.yellowCards--;
-                    CardColor.RED -> selTeam.redCards--
-                    CardColor.BLUE -> selTeam.yellowCards--
+        if (!events.empty()) {
+            val event = events.pop()
+            val selTeam: Team = when (event.teamNumber) {
+                1 -> team1;
+                2 -> team2;
+                else -> {
+                    Log.e("VemProFut", "Equipe Invalida");
+                    return
                 }
             }
-        }
+            when (event) {
+                is Score -> selTeam.gols--;
+                is Card -> {
+                    when (event.cardColor) {
+                        CardColor.YELLOW -> selTeam.yellowCards--;
+                        CardColor.RED -> selTeam.redCards--
+                        CardColor.BLUE -> selTeam.yellowCards--
+                    }
+                }
+            }
 
+        }
     }
 
     fun scoreTeamOne() {
-        addEvent(Score(1));
+        addEvent(Score(1, half, pastSeconds));
         team1.gols++;
     }
 
     fun scoreTeamTwo() {
-        addEvent(Score(2))
+        addEvent(Score(2, half, pastSeconds))
         team2.gols++;
     }
 
     fun cardTeamOne(color: CardColor) {
-        addEvent(Card(1, color))
+        addEvent(Card(1, color, half, pastSeconds))
+        when (color) {
+            CardColor.YELLOW -> team1.yellowCards++
+            CardColor.RED -> team1.redCards++
+            CardColor.BLUE -> team1.blueCards++
+        }
     }
 
     fun cardTeamTwo(color: CardColor) {
-        addEvent(Card(2, color))
+
+        addEvent(Card(2, color, half, pastSeconds))
+        when (color) {
+            CardColor.YELLOW -> team2.yellowCards++
+            CardColor.RED -> team2.redCards++
+            CardColor.BLUE -> team2.blueCards++
+        }
     }
 
     abstract fun getNome(): String;
     override fun toString(): String {
-        return getNome();
+        return this.javaClass.name + " " + getNome() + "Placar:" + team1.toString() + " " + team2.toString();
     }
 }
