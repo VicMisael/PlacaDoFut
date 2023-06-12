@@ -58,15 +58,13 @@ class ConfigActivity : AppCompatActivity() {
     fun initInterface(){
         val tv= findViewById<EditText>(R.id.editTextGameName)
         tv.setText(placar.nome_partida)
-        val sw= findViewById<Switch>(R.id.swTimer)
-        sw.isChecked=placar.has_timer
     }
 
     fun updatePlacarConfig(){
         val tv= findViewById<EditText>(R.id.editTextGameName)
-        val sw= findViewById<Switch>(R.id.swTimer)
+
         placar.nome_partida= tv.text.toString()
-        placar.has_timer=sw.isChecked
+
     }
 
     fun openPlacar(v: View){ //Executa ao click do Iniciar Jogo
@@ -75,13 +73,12 @@ class ConfigActivity : AppCompatActivity() {
         val gamename=findViewById<EditText>(R.id.editTextGameName).text.toString();
         val eqp1=findViewById<EditText>(R.id.equipe1).text.toString();
         val eqp2=findViewById<EditText>(R.id.equipe2).text.toString()
-        val sw= findViewById<Switch>(R.id.swTimer);
         val text = spinner.selectedItem.toString()
 
         val game: Game =when(text){
-            "Normal"-> Normal(gamename,eqp1,eqp2,sw.isChecked)
-            "Racha"-> Racha(gamename,eqp1,eqp2,sw.isChecked)
-            "Cup" -> Cup(gamename,eqp1,eqp2,sw.isChecked)
+            "Normal"-> Normal(gamename,eqp1,eqp2,true)
+            "Racha"-> Racha(gamename,eqp1,eqp2,true)
+            "Cup" -> Cup(gamename,eqp1,eqp2,true)
             else -> {
                 val intent = Intent(this, GameConfigActivity::class.java).apply{
 

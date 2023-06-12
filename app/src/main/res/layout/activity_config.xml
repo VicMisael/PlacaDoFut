@@ -4,90 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".ConfigActivity">
 
-    <EditText
-        android:id="@+id/equipe2"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputLayoutGameName"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/modos"
-        app:layout_constraintTop_toBottomOf="@+id/equipe1"
-        app:layout_constraintVertical_bias="0.125"
-        tools:layout_editor_absoluteX="105dp" />
-
-    <EditText
-        android:id="@+id/editTextGameName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.259" />
-
-    <TextView
-        android:id="@+id/tvNomePartida"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="Nome da Partida"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextGameName"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Switch
-        android:id="@+id/swTimer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Cronômetro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextGameName" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextGameName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome da Partida"
+            android:textColor="#000000"
+            android:textSize="18sp" />
 
-    <Button
-        android:id="@+id/btInitGame"
-        android:layout_width="wrap_content"
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputLayoutEquipe1"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:onClick="openPlacar"
-        android:text="Iniciar Jogo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/inputLayoutEquipe2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/swTimer"
-        app:layout_constraintVertical_bias="0.863" />
+        app:layout_constraintTop_toBottomOf="@+id/inputLayoutGameName">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/equipe1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome da Equipe 1"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputLayoutEquipe2"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/inputLayoutEquipe1"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayoutGameName">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/equipe2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome da Equipe 2"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Spinner
         android:id="@+id/modos"
         android:layout_width="191dp"
         android:layout_height="36dp"
-        app:layout_constraintBottom_toTopOf="@+id/btInitGame"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/swTimer"
-        app:layout_constraintVertical_bias="0.778" />
+        android:layout_marginTop="52dp"
+        android:popupBackground="#FFFFFF"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/inputLayoutGameName"
+        app:layout_constraintStart_toStartOf="@+id/inputLayoutGameName"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayoutEquipe2" />
 
-    <EditText
-        android:id="@+id/equipe1"
+    <Button
+        android:id="@+id/btInitGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/modos"
-        app:layout_constraintTop_toBottomOf="@+id/swTimer"
-        app:layout_constraintVertical_bias="0.116"
-        tools:layout_editor_absoluteX="105dp" />
+        android:layout_marginTop="52dp"
+        android:background="@drawable/button_bg"
+        android:onClick="openPlacar"
+        android:text="Iniciar Jogo"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/inputLayoutGameName"
+        app:layout_constraintStart_toStartOf="@+id/inputLayoutGameName"
+        app:layout_constraintTop_toBottomOf="@+id/modos" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
