@@ -48,9 +48,7 @@ class PlacarActivity : AppCompatActivity() {
         }
 
         chronometer.setOnChronometerTickListener {
-            if (game.has_timer) {
-                game.pastSeconds++;
-            }
+            game.pastSeconds++
         }
 
         chronometer.start()
