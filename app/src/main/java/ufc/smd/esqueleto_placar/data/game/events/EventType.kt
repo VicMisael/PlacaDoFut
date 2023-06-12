@@ -1,4 +1,7 @@
 package ufc.smd.esqueleto_placar.data.game.events
 
-open class EventType(val teamNumber:Int) {
+import java.io.Serializable
+
+open class EventType(val teamNumber:Int,val half:Int,val second:Int): Serializable
+{
 }
