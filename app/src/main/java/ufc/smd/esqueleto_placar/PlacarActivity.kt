@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.SystemClock
 
 import android.util.Log
 import android.view.View
@@ -22,7 +23,8 @@ class PlacarActivity : AppCompatActivity() {
     lateinit var game: Game
     lateinit var tvResultadoJogo: TextView
     lateinit var chronometer: Chronometer
-    var acrescimo=0;
+    var acrescimoVal = 0;
+    var isPaused=false;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
@@ -30,12 +32,15 @@ class PlacarActivity : AppCompatActivity() {
         game = getIntent().getExtras()?.getSerializable("game") as Game
         tvResultadoJogo = findViewById(R.id.tvPlacar)
         chronometer = findViewById(R.id.c_meter)
-        val goalTeam1:FloatingActionButton = findViewById(R.id.goalTeam2);
-        val goalTeam2:FloatingActionButton = findViewById(R.id.goalTeam1);
-        val rollback:ImageButton =findViewById(R.id.rollback);
-        val acrescimo:FloatingActionButton = findViewById(R.id.acrescimo);
+        val goalTeam1: FloatingActionButton = findViewById(R.id.goalTeam2);
+        val goalTeam2: FloatingActionButton = findViewById(R.id.goalTeam1);
+        val rollback: ImageButton = findViewById(R.id.rollback);
+        val acrescimo: FloatingActionButton = findViewById(R.id.acrescimo);
 
         acrescimo.hide();
+        acrescimo.setOnClickListener {
+            acrescimoVal++;
+        }
         rollback.setOnClickListener {
             game.rollback()
             update()
@@ -52,10 +57,19 @@ class PlacarActivity : AppCompatActivity() {
         }
 
         chronometer.setOnChronometerTickListener {
-                game.pastSeconds++;
-                if(game.pastSeconds>=game.seconds*0.95){
-                    acrescimo.show()
+            game.pastSeconds++;
+            if (game.pastSeconds >= game.seconds * 0.95) {
+                acrescimo.show()
+            }
+            if(acrescimoVal+game.seconds>=game.pastSeconds){
+                chronometer.base = SystemClock.elapsedRealtime();
+                chronometer.stop();
+                game.pastSeconds=0;
+                game.half++;
+                if(game.half>game.halfs){
+                    saveGame();
                 }
+            }
 
         }
 
@@ -71,7 +85,7 @@ class PlacarActivity : AppCompatActivity() {
     }
 
 
-    fun saveGame(v: View) {
+    fun saveGame() {
 
         val sharedFilename = "PreviousGames"
         val sp: SharedPreferences = getSharedPreferences(sharedFilename, Context.MODE_PRIVATE)
