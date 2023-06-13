@@ -1,7 +1,6 @@
 package ufc.smd.esqueleto_placar.data.game
 
 class CustomGame(
-    val nome_modo: String,
     nome_partida: String,
     nome_equipe1: String,
     nome_equipe2: String,
@@ -18,6 +17,6 @@ class CustomGame(
         @JvmStatic private val serialVersionUID: Long = 6529685098267757690L
     }
     override fun getNome():String {
-        return nome_modo;
+        return nome_partida;
     }
 }

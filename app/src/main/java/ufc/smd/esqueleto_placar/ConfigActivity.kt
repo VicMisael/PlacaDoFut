@@ -8,9 +8,7 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
-import android.widget.Switch
 import androidx.appcompat.app.AppCompatActivity
-import ufc.smd.esqueleto_placar.data.Placar
 import ufc.smd.esqueleto_placar.data.game.Cup
 import ufc.smd.esqueleto_placar.data.game.Game
 import ufc.smd.esqueleto_placar.data.game.Normal
@@ -19,12 +17,13 @@ import ufc.smd.esqueleto_placar.data.game.Racha
 
 class ConfigActivity : AppCompatActivity() {
     var placar: Game=Normal("Nome da Partida","Equipe 1","Equipe 2")
-    lateinit var spinner: Spinner;
+    lateinit var spinner: Spinner
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_config)
-        spinner=findViewById(R.id.modos);
-        val spinnerOptions=listOf("Normal","Racha","Cup");
+        spinner=findViewById(R.id.modos)
+        val spinnerOptions=listOf("Normal","Racha","Cup","Custom Game")
         val adapter: ArrayAdapter<String> = ArrayAdapter<String>(
             this,
             android.R.layout.simple_spinner_item, spinnerOptions
@@ -35,7 +34,6 @@ class ConfigActivity : AppCompatActivity() {
 
         openConfig()
         initInterface()
-
     }
     fun saveConfig(){
         val sharedFilename = "configPlacar"
@@ -70,12 +68,17 @@ class ConfigActivity : AppCompatActivity() {
         val eqp1=findViewById<EditText>(R.id.equipe1).text.toString();
         val eqp2=findViewById<EditText>(R.id.equipe2).text.toString()
         val text = spinner.selectedItem.toString()
-
         val game: Game =when(text){
             "Normal"-> Normal(gamename,eqp1,eqp2)
             "Racha"-> Racha(gamename,eqp1,eqp2)
             "Cup" -> Cup(gamename,eqp1,eqp2)
             else -> {
+                val intent = Intent(this, GameConfigActivity::class.java).apply{
+                    putExtra("gamename", gamename)
+                    putExtra("eqp1", eqp1)
+                    putExtra("eqp2", eqp2)
+                }
+                startActivity(intent)
                 return
             }
         }
