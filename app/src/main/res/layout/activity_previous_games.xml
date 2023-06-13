@@ -14,7 +14,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcPreviousGames"
+        android:id="@+id/rcEvents"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

@@ -14,7 +14,9 @@ class CustomGame(
     seconds,
     halfs,
 ) {
-
+    companion object {
+        @JvmStatic private val serialVersionUID: Long = 6529685098267757690L
+    }
     override fun getNome():String {
         return nome_modo;
     }

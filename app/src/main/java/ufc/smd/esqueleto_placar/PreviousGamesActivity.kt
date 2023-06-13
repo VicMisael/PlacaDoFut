@@ -8,12 +8,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ufc.smd.esqueleto_placar.data.Placar
 import ufc.smd.esqueleto_placar.data.game.Game
 import java.io.ByteArrayInputStream
 import java.io.ObjectInputStream
-import java.text.SimpleDateFormat
-import java.util.*
 import kotlin.collections.ArrayList
 
 class PreviousGamesActivity : AppCompatActivity() {
@@ -22,25 +19,13 @@ class PreviousGamesActivity : AppCompatActivity() {
         setContentView(R.layout.activity_previous_games)
 
         // Trazendo o Recycler View
-        val recyclerview = findViewById<RecyclerView>(R.id.rcPreviousGames)
+        val recyclerview = findViewById<RecyclerView>(R.id.rcEvents)
 
         // Tipo de Layout Manager será Linear
         recyclerview.layoutManager = LinearLayoutManager(this)
 
-        // O ArrayList de Placares
         val data = readPLacarDataSharedPreferences()
-        // val date = Calendar.getInstance().time
-        // var dateTimeFormat = SimpleDateFormat("dd/MM/yy HH:mm:ss", Locale.getDefault())
-        // val data_hora = dateTimeFormat.format(date)
 
-
-        //Criando 10 Placares
-        //   for (i in 1..10) {
-        //     val date = Calendar.getInstance().time
-        //   var dateTimeFormat = SimpleDateFormat("dd/MM/yy HH:mm:ss", Locale.getDefault())
-        // val data_hora = dateTimeFormat.format(date)
-        //data.add(Placar("Jogo "+i,""+i+"x"+i," O jogo foi 4x4 em "+data_hora+"h",true))
-        //}
 
         // ArrayList enviado ao Adapter
         val adapter = CustomAdapter(data)
@@ -68,7 +53,7 @@ class PreviousGamesActivity : AppCompatActivity() {
                     var obi: ObjectInputStream
                     obi = ObjectInputStream(bis)
 
-                    var placar: Game = obi.readObject() as Game
+                    var placar:Game = obi.readObject() as Game
                     data.add(placar)
                     //Log.v("PDM", "match"+i+" :"+aux)
                     Log.v("PDM", "Placar: $placar");
@@ -82,9 +67,9 @@ class PreviousGamesActivity : AppCompatActivity() {
         Log.v("PDM", "Lendo o Shared Preferences")
         val sharedFileName = "PreviousGames"
         var aux: String
-        var sp: SharedPreferences = getSharedPreferences(sharedFileName, Context.MODE_PRIVATE)
+        val sp: SharedPreferences = getSharedPreferences(sharedFileName, Context.MODE_PRIVATE)
         if (sp != null) {
-            var numMatches = sp.getInt("numberMatch", 0)
+            val numMatches = sp.getInt("numberMatch", 0)
             Log.v("PDM", "numMatchs:" + numMatches)
             for (i in 1..numMatches) {
                 aux = sp.getString("match" + i, "vazio")!!
@@ -95,10 +80,10 @@ class PreviousGamesActivity : AppCompatActivity() {
                     var obi: ObjectInputStream
                     obi = ObjectInputStream(bis)
 
-                    var placar: Placar = obi.readObject() as Placar
+                    val placar: Game = obi.readObject() as Game
 
                     //Log.v("PDM", "match"+i+" :"+aux)
-                    Log.v("PDM", "Placar: " + placar.nome_partida + " Res:" + placar.resultadoLongo)
+                    Log.v("PDM", "Placar: " + placar.nome_partida + " Res:" + placar.toString())
                 }
             }
         }

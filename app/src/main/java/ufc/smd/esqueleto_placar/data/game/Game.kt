@@ -18,13 +18,25 @@ abstract class Game(
     var pastSeconds: Int = 0,
     var events: Stack<EventType> = Stack()
 ) : Serializable {
-
+    companion object {
+        @JvmStatic private val serialVersionUID: Long = 6529685098267757690L
+    }
     var team1: Team = Team(nome_equipe1);
     var team2: Team = Team(nome_equipe2);
 
 
     val scoreTeamOne get() = team1.gols;
     val scoreTeamTwo get() = team2.gols;
+
+    val yellowCardsTeam1 get() = team1.yellowCards;
+    val yellowCardsTeam2 get() = team2.yellowCards;
+
+    val redCardsTeam1 get() = team1.redCards;
+    val redCardsTeam2 get() = team2.redCards;
+
+    val blueCardTeam1 get() = team1.blueCards;
+    val blueCardTeam2 get() = team2.blueCards;
+
 
     val description get() = " A partida $nome_partida terminou com ${team1.gols} pra $nome_equipe1 e ${team2.gols} para a $nome_equipe2 "
 

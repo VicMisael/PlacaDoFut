@@ -2,11 +2,11 @@
     <string name="app_name">Vem Pro Fut </string>
     <string name="semPerLigar">Sua aplicação não tem permissão para ligar</string>
     <string name="semPerLoca">Sua aplicação não tem acesso à localização</string>
-<!--    <string name="startTimer">Start Timer</string>-->
-<!--    <string name="timerStarted">Started</string>-->
-<!--    <string name="stopTimer">Stop Timer</string>-->
-<!--    <string name="timerStopped">Stopped</string>-->
-<!--    <string name="restartTimer">Start Timer</string>-->
-<!--    <string name="timerRestarted">Stopped</string>-->
+    <!--    <string name="startTimer">Start Timer</string>-->
+    <!--    <string name="timerStarted">Started</string>-->
+    <!--    <string name="stopTimer">Stop Timer</string>-->
+    <!--    <string name="timerStopped">Stopped</string>-->
+    <!--    <string name="restartTimer">Start Timer</string>-->
+    <!--    <string name="timerRestarted">Stopped</string>-->
     <string name="title_activity_custom_game">CustomGameActivity</string>
 </resources>
