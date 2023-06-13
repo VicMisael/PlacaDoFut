@@ -8,13 +8,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ufc.smd.esqueleto_placar.data.Placar
 import ufc.smd.esqueleto_placar.data.game.Game
-import ufc.smd.esqueleto_placar.data.game.Normal
 import java.io.ByteArrayInputStream
 import java.io.ObjectInputStream
-import java.text.SimpleDateFormat
-import java.util.*
 import kotlin.collections.ArrayList
 
 class PreviousGamesActivity : AppCompatActivity() {
@@ -23,7 +19,7 @@ class PreviousGamesActivity : AppCompatActivity() {
         setContentView(R.layout.activity_previous_games)
 
         // Trazendo o Recycler View
-        val recyclerview = findViewById<RecyclerView>(R.id.rcPreviousGames)
+        val recyclerview = findViewById<RecyclerView>(R.id.rcEvents)
 
         // Tipo de Layout Manager será Linear
         recyclerview.layoutManager = LinearLayoutManager(this)

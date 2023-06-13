@@ -32,11 +32,13 @@ class PlacarActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         supportActionBar?.hide()
         setContentView(R.layout.activity_placar)
         game = getIntent().getExtras()?.getSerializable("game") as Game
         tvResultadoJogo = findViewById(R.id.tvPlacar)
         chronometer = findViewById(R.id.c_meter)
+        game.half=1;
         val goalTeam1: FloatingActionButton = findViewById(R.id.goalTeam2);
         val goalTeam2: FloatingActionButton = findViewById(R.id.goalTeam1);
         val rollback: ImageButton = findViewById(R.id.rollback);

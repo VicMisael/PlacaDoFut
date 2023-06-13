@@ -17,8 +17,8 @@
         <ImageView
             android:id="@+id/imageview"
             android:layout_width="40dp"
-            android:layout_height="40dp"
-            app:srcCompat="@drawable/black_ball" />
+            android:layout_height="51dp"
+            app:srcCompat="@drawable/ic_launcher_foreground" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -28,18 +28,18 @@
             android:paddingStart="10dp">
 
             <TextView
-                android:id="@+id/tvNomePartida"
+                android:id="@+id/tvEventName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nome da Partida"
+                android:text="Evento"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvResultadoJogo"
+                android:id="@+id/tvTempoEvento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Resultado do Jogo"
+                android:text="Tempo"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
