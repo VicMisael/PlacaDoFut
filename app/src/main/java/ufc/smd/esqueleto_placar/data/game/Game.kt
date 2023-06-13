@@ -28,6 +28,16 @@ abstract class Game(
     val scoreTeamOne get() = team1.gols;
     val scoreTeamTwo get() = team2.gols;
 
+    val yellowCardsTeam1 get() = team1.yellowCards;
+    val yellowCardsTeam2 get() = team2.yellowCards;
+
+    val redCardsTeam1 get() = team1.redCards;
+    val redCardsTeam2 get() = team2.redCards;
+
+    val blueCardTeam1 get() = team1.blueCards;
+    val blueCardTeam2 get() = team2.blueCards;
+
+
     val description get() = " A partida $nome_partida terminou com ${team1.gols} pra $nome_equipe1 e ${team2.gols} para a $nome_equipe2 "
 
     private fun addEvent(event: EventType) {
