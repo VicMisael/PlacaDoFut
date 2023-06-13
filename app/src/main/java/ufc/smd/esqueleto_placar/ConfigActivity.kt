@@ -17,22 +17,12 @@ import ufc.smd.esqueleto_placar.data.game.Racha
 
 class ConfigActivity : AppCompatActivity() {
     var placar: Game=Normal("Nome da Partida","Equipe 1","Equipe 2")
-<<<<<<< HEAD
     lateinit var spinner: Spinner
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_config)
         spinner=findViewById(R.id.modos)
         val spinnerOptions=listOf("Normal","Racha","Cup","Custom Game")
-=======
-    lateinit var spinner: Spinner;
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_config)
-        spinner=findViewById(R.id.modos);
-        val spinnerOptions=listOf("Normal","Racha","Cup");
->>>>>>> origin
         val adapter: ArrayAdapter<String> = ArrayAdapter<String>(
             this,
             android.R.layout.simple_spinner_item, spinnerOptions
