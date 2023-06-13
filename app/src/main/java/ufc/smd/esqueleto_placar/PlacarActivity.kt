@@ -49,6 +49,10 @@ class PlacarActivity : AppCompatActivity() {
         val yellowBtn2: Button = findViewById(R.id.yellowTeam2);
         val redBtn1: Button = findViewById(R.id.redTeam1);
         val redBtn2: Button = findViewById(R.id.redTeam2);
+        val save:Button = findViewById(R.id.saveButton)
+        save.setOnClickListener{
+            saveGame();
+        }
 
         txtViewNumCardYellow1 = findViewById(R.id.numYellowsT1)
         txtViewNumCardYellow2 = findViewById(R.id.numYellowsT2)

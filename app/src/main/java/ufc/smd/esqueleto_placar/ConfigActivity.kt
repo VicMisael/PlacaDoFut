@@ -24,7 +24,7 @@ class ConfigActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_config)
         spinner=findViewById(R.id.modos);
-        val spinnerOptions=listOf("Normal","Racha","Cup","Custom Game");
+        val spinnerOptions=listOf("Normal","Racha","Cup");
         val adapter: ArrayAdapter<String> = ArrayAdapter<String>(
             this,
             android.R.layout.simple_spinner_item, spinnerOptions
@@ -76,10 +76,6 @@ class ConfigActivity : AppCompatActivity() {
             "Racha"-> Racha(gamename,eqp1,eqp2)
             "Cup" -> Cup(gamename,eqp1,eqp2)
             else -> {
-                val intent = Intent(this, GameConfigActivity::class.java).apply{
-
-                }
-                startActivity(intent)
                 return
             }
         }

@@ -12,9 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Esqueleto_Placar">
         <activity
-            android:name=".GameConfigActivity"
-            android:exported="false" />
-        <activity
             android:name=".PlacarActivity"
             android:configChanges="orientation|keyboardHidden"
             android:exported="false"

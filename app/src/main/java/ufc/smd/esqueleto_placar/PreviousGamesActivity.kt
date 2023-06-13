@@ -28,20 +28,8 @@ class PreviousGamesActivity : AppCompatActivity() {
         // Tipo de Layout Manager será Linear
         recyclerview.layoutManager = LinearLayoutManager(this)
 
-        // O ArrayList de Placares
         val data = readPLacarDataSharedPreferences()
-        // val date = Calendar.getInstance().time
-        // var dateTimeFormat = SimpleDateFormat("dd/MM/yy HH:mm:ss", Locale.getDefault())
-        // val data_hora = dateTimeFormat.format(date)
 
-
-        //Criando 10 Placares
-        //   for (i in 1..10) {
-        //     val date = Calendar.getInstance().time
-        //   var dateTimeFormat = SimpleDateFormat("dd/MM/yy HH:mm:ss", Locale.getDefault())
-        // val data_hora = dateTimeFormat.format(date)
-        //data.add(Placar("Jogo "+i,""+i+"x"+i," O jogo foi 4x4 em "+data_hora+"h",true))
-        //}
 
         // ArrayList enviado ao Adapter
         val adapter = CustomAdapter(data)
@@ -83,9 +71,9 @@ class PreviousGamesActivity : AppCompatActivity() {
         Log.v("PDM", "Lendo o Shared Preferences")
         val sharedFileName = "PreviousGames"
         var aux: String
-        var sp: SharedPreferences = getSharedPreferences(sharedFileName, Context.MODE_PRIVATE)
+        val sp: SharedPreferences = getSharedPreferences(sharedFileName, Context.MODE_PRIVATE)
         if (sp != null) {
-            var numMatches = sp.getInt("numberMatch", 0)
+            val numMatches = sp.getInt("numberMatch", 0)
             Log.v("PDM", "numMatchs:" + numMatches)
             for (i in 1..numMatches) {
                 aux = sp.getString("match" + i, "vazio")!!
@@ -96,10 +84,10 @@ class PreviousGamesActivity : AppCompatActivity() {
                     var obi: ObjectInputStream
                     obi = ObjectInputStream(bis)
 
-                    var placar: Placar = obi.readObject() as Placar
+                    val placar: Game = obi.readObject() as Game
 
                     //Log.v("PDM", "match"+i+" :"+aux)
-                    Log.v("PDM", "Placar: " + placar.nome_partida + " Res:" + placar.resultadoLongo)
+                    Log.v("PDM", "Placar: " + placar.nome_partida + " Res:" + placar.toString())
                 }
             }
         }
