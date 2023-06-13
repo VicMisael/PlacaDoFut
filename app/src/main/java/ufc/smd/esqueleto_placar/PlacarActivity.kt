@@ -127,7 +127,7 @@ class PlacarActivity : AppCompatActivity() {
                     acrescimo.show()
                 }
                 if (game.pastSeconds >= acrescimoVal + game.seconds) {
-                    chronometer.base = SystemClock.elapsedRealtime();
+                    // chronometer.base = SystemClock.elapsedRealtime();
                     acrescimoVal = 0;
                     chronometer.stop();
                     game.pastSeconds = 0;
