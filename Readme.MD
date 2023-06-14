@@ -15,6 +15,10 @@ O Vem pro Fut é um aplicativo simples para acompanhar pontuações de jogos e p
 ![Alt text](screenshots/image.png)
 ![Alt text](screenshots/image.png)
 ![Alt text](screenshots/image-2.png)
+![Alt text](screenshots/shots%20(2).png)
+![Alt text](screenshots/shots%20(1).png)
+![Alt text](screenshots/shots%20(3).png)
+![Alt text](screenshots/shots%20(4).png)
 
 ## Como Usar
 
